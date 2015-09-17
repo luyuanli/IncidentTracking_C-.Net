@@ -1,0 +1,67 @@
+﻿@model LL_Lab6.Models.Incident
+
+@{
+    ViewBag.Title = "Incident Delete";
+}
+
+<h2>Incident Delete</h2>
+
+<h3>Are you sure you want to delete this incident?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal dl-line-height">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTO)
+        </dd>
+
+        <dt class="table-top-margin">
+            @Html.DisplayNameFor(model => model.Teams)
+        </dt>
+
+        <dd>
+            <table class="table-bordered table-condensed table-striped table-top-margin">
+                <tr>
+                    <th>Name</th>
+                    <th>Availability</th>
+                </tr>
+                @foreach (var item in Model.Teams)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@Html.DisplayFor(model => item.Availability)</td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
