@@ -24,7 +24,7 @@ namespace LL_Lab6.Models
              var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(dc));
 
              string adminRole = "Administrator";
-             string adminEmail = "admin@myseneca.ca";
+             string adminEmail = "admin@company.ca";
              string password = "123456";
 
              if (!RoleManager.RoleExists(adminRole))
@@ -45,7 +45,7 @@ namespace LL_Lab6.Models
                  UserManager.AddClaim(adminUser.Id, new Claim(ClaimTypes.Role, adminRole));
              }
 
-             string memberName = "mark@myseneca.ca";
+             string memberName = "mark@company.ca";
              string memberRole = "Member";
              var member = new MyUser();
 
